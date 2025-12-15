@@ -50,10 +50,10 @@ Demonstrates ACID properties. We will safely distribute 10 units of Rice (Item 1
 SQL
 
 -- Run the safe distribution procedure
-CALL DistributeFood(1, 10, 'Barangay 123 Beneficiaries');
+`CALL DistributeFood(1, 10, 'Barangay 123 Beneficiaries');`
 
 -- Verify the record was created
-SELECT * FROM Distributions ORDER BY dist_id DESC LIMIT 1;
+`SELECT * FROM Distributions ORDER BY dist_id DESC LIMIT 1;`
 
 2. Test the Reports (FR4)
 We created Views to make reporting easy and meet the "Complex SQL" requirement.
@@ -61,12 +61,12 @@ We created Views to make reporting easy and meet the "Complex SQL" requirement.
 Report A: Check for expiring stock (Complex DQL) Identifies items expiring within 30 days.
 
 SQL
-SELECT * FROM View_ExpiringStock;
+`SELECT * FROM View_ExpiringStock;`
 
 Report B: Total Impact per Donor (Complex JOINS) Aggregates data to show who donated the most.
 
 SQL
-SELECT * FROM View_DonorImpact;
+`SELECT * FROM View_DonorImpact;`
 
 3. Validation: Testing Constraints & Triggers
 The system must fail gracefully to prevent data corruption or safety issues.
@@ -80,7 +80,7 @@ SQL
 Test B: Try to over-distribute stock Trying to give more than we have. This should return: "ERROR: Insufficient stock."
 
 SQL
-CALL DistributeFood(1, 9999, 'Stress Test Group');
+`CALL DistributeFood(1, 9999, 'Stress Test Group');`
 
 4. General SQL Commands (Utility)
 Use these to inspect the database structure.
